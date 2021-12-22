@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sales & Inventory Forecasting Demo </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/inventory_style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--        <style>-->
+<!--.hide {-->
+<!--  display: none;-->
+<!--}-->
+
+<!--.myDIV:hover + .hide {-->
+<!--  display: block;-->
+<!--  color: red;-->
+<!--}-->
+<!--</style>-->
+<!--	<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>-->
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<!--    <link rel=”stylesheet” href=”http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css”>-->
+<!--    <link href=”/static/css/bootstrap-switch.css” rel=”stylesheet”>-->
+<!--    <script src="jquery.js"></script>-->
+<!--    <script src="bootstrap-switch.js"></scet” href=”http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css”>-->
+<!--    <link href=”/static/css/bootstrap-switch.css” rel=”stylesheet”>-->
+<!--    <script src="jquery.js"></script>-->
+<!--    <script src="bootstrapript>-->
+</head>
+
+<body>
+  <div id="sidebar">
+    <header>
+      <a href="/dashboard">Demo</a>
+    </header>
+    <pre></pre>
+    <ul class="nav" >
+     
+      <li>
+        <a href="/demo/cancerPrediction">
+          <i class="material-icons" style="font-size:16px">class</i>
+          <i class="zmdi zmdi-view-dashboard"></i> Breast Cancer Prediction <hr>
+        </a>
+      </li>
+      <li>
+        <a href="/demo/SalesInventoryforecast">
+          <i class="material-icons" style="font-size:16px">access_time</i>  
+          <i class="zmdi zmdi-link"></i>Sales Inventory Forecast<hr>
+        </a>
+	  </li>
+	  <li>
+		<a href="/demo/MovieRecommendation">
+		  <i class="material-icons" style="font-size:16px">access_time</i>  
+		  <i class="zmdi zmdi-link"></i>Movie Recommendation<hr>
+		</a>
+	  </li>
+       <li>
+          <a href="/demo/PredNer">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> NER Prediction <hr>
+          </a>
+        </li>
+         <li>
+          <a href="/demo/DetectGenderAge">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> Gender & Age Detection <hr>
+          </a>
+        </li>
+        <li>
+          <a href="/demo/AnalyseSentiment">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> Sentiment Analyser <hr>
+          </a>
+        </li>
+        <li>
+          <a href="/demo/segmentionCustomer">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> Customer Segmentation <hr>
+          </a>
+        </li>
+        <li>
+          <a href="/demo/NlpOcr">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> Optical Character Recognition <hr>
+          </a>
+        </li>
+           <li>
+          <a href="/demo/PriceCar">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> Car Price Prediction<hr>
+          </a>
+        </li>
+        <li>
+          <a href="/demo/DetectAnomaly">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> Anomaly Detection<hr>
+          </a>
+        </li>
+        <li>
+          <a href="/demo/OcrPytesseract">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> pytesseract Ocr<hr>
+          </a>
+        </li>
+        <li>
+          <a href="/demo/EasyOcrPytesseract">
+            <i class="material-icons" style="font-size:16px">class</i>
+            <i class="zmdi zmdi-view-dashboard"></i> pytesseract & EasyOcr<hr>
+          </a>
+        </li>
+    </ul>
+    <footer>
+      <div>
+      <p style ="color:red;">© 2020 Softweb Solutions Inc (An Avnet Company). All rights reserved.</p>
+  </div></footer>
+  </div>
+
+<section class="header">
+    <div class="container text-center">
+        <div class="logo">
+            <!---<img src="/static/images/logo.png" alt="Logo"> ---->
+        </div>
+    </div>
+
+</section>
+
+<div class="container page-wrapper">
+    <div class="main-title text-center overflow-hidden">
+        <h2>Sales & Inventory Forecasting Demo</h2>
+    </div>
+    <div class="whitebg border-dash text-center mt-4 p-4">
+
+
+	<form name="myForm" action="/forecast" method="post" enctype="multipart/form-data" runat="server">
+        <p>
+<!--        <div class="myDIV">-->
+        <input name="prediction" type="radio" value="sale" id="sale" checked data-size="large">
+            <label for="sale">Sales Forecasting (Weekly basis)</label><br>
+<!--        </div>-->
+<!--        <div class="hide">Add data with sales column</div>-->
+<!--        <div class="myDIV">-->
+<!--            <hr>-->
+        <input name="prediction" type="radio" value="inventory" id="inventory" checked data-size="large">
+            <label for="inventory">Inventory Forecasting (Daily basis)</label><br>
+<!--        </div>-->
+<!--        <div class="hide">Add data with inventory column</div>-->
+
+        </p>
+<!--        <div class="mx-auto" style="width: 200px;">-->
+<!--        <div class="row">-->
+<!--        <div class="col-lg-3 center-block">-->
+        <div class="col-12">
+          <div class="input-group input-group-lg w-25 mx-auto" style="width: 30%!important">
+<!--                <div class="input-group-prepend">-->
+<!--                    <span class="input-group-text">No of days/weeks to forecast</span>-->
+<!--                </div>-->
+                <input type="number" class="form-control" name="f_days" placeholder="No. of days/weeks to forecast" style="font-size: 1rem;">
+          </div>
+        </div>
+        <br>
+
+<!--        </div>-->
+<!--        </div>-->
+<!--        </div>-->
+<!--        <hr>-->
+        <div class="d-flex justify-content-center mb-3">
+            <div class="custom-file w-auto mr-3">
+                <input type="file" class="custom-file-input" id="customFile" name="data" style="font-size: 1rem;">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit" style ="background: #007bff;
+    border-color: #007bff;
+    color: #fff;">Forecast</button>
+            </div>
+
+        </div>
+        <br><br><label>{{wrnMsg_label}}</label>
+        {% if date_1 %}
+        <center>
+        
+		<div style="width:75%;">
+			<canvas id="canvas" ></canvas>
+		</div>
+		</center>
+		<script>
+ window.chartColors = { 	red: 'rgb(255, 99, 132)', 	orange: 'rgb(255, 159, 64)', 	yellow: 'rgb(255, 205, 86)', 	green: 'rgb(75, 192, 192)', 	blue: 'rgb(54, 162, 235)', 	purple: 'rgb(153, 102, 255)', 	grey: 'rgb(201, 203, 207)' }; 
+
+var randomScalingFactor = function() {
+			return Math.round(Math.random() * 100);
+		};
+
+		var config = {
+			type: 'line',
+			data: {
+				labels: {{ date_1|tojson }},
+				datasets: [{
+					label: 'Actual',
+					data:  {{ actual|tojson }},
+					borderColor: window.chartColors.red,
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					fill: false,
+					cubicInterpolationMode: 'monotone'
+				}, {
+					label: 'Forecasted',
+					data:  {{ forecasted|tojson }},
+					borderColor: window.chartColors.blue,
+					backgroundColor: 'rgba(0, 0, 0, 0)',
+					fill: false,
+				}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Forecasting Demo'
+				},
+				tooltips: {
+					mode: 'index'
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						type: 'time',
+						scaleLabel: {
+							display: true,
+							labelString: 'Date-time'
+						}
+					}],
+					
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Sales/Inventory Value'
+						},
+						ticks: {
+							suggestedMin: -10,
+							suggestedMax: 200,
+						}
+					}]
+				}
+			}
+		};
+
+	
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+ </script>
+ <script>
+ canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		display: 'initial';
+	}
+ </script>
+{% endif %}
+<!--        {% if prediction_status %}-->
+<!--        </form>-->
+<!--            <form name="myForm" action="/download" method="get" enctype="multipart/form-data" runat="server">-->
+<!--            <div class="d-flex justify-content-center mb-3">-->
+<!--                <div>-->
+<!--                    <button class="btn btn-primary mr-3" type="submit">Download</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--        {% endif %}-->
+
+
+    <div class="whitebg p-4">
+        <div class="text-center">
+            <!---<h2>Cancer Prediction probability chart for patient</h2>
+            <img src="/static/images/graph.png" alt="graph">--->
+
+			{% if label %}<center> <label style="-webkit-font-smoothing: antialiased;font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;color: #860850;font-weight: bold;">
+			{{ label }}
+			 </label></center>
+			 {% endif %}
+
+			 {% if user_image %}
+			 <center>
+				<img src="{{url_for('static',filename= 'inputed/'+user_image) }}" alt="User Image" style="max-width: 350px;">
+			 </center>
+			 {% endif %}
+
+			 {% if label_Status %}<center> <label style="-webkit-font-smoothing: antialiased;font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;color: #0167aa;font-weight: bold;">
+			{{ label_Status }}
+			 </label></center>
+			 {% endif %}
+			<canvas id="chart" width="600" height="400"></canvas>
+			<script>
+			  // bar chart data
+			  var barData = {
+				labels : [
+				  {% for item in labels %}
+				   "{{ item }}",
+				  {% endfor %}
+			],
+
+				datasets : [{
+				  fillColor: "rgba(151,187,205,0.2)",
+				  strokeColor: "rgba(151,187,205,1)",
+				  pointColor: "rgba(151,187,205,1)",
+				  data : [
+					{% for item in values %}
+					   "{{ item }}",
+					  {% endfor %}
+				]
+				  }
+				]
+			  }
+
+			 // get bar chart canvas
+			 var mychart = document.getElementById("chart").getContext("2d");
+
+			   steps = 10
+			   max = {{max}}
+
+			 // draw bar chart
+			 new Chart(mychart).Bar(barData, {
+			   scaleOverride: true,
+			   scaleSteps: steps,
+			   scaleStepWidth: Math.ceil(max / steps),
+			   scaleStartValue: 0,
+			   scaleShowVerticalLines: true,
+			   scaleShowGridLines : true,
+			   barShowStrke : true,
+			   scaleShowLabels: true
+			   }
+			 );
+
+			</script>
+        </div>
+    </div>
+</div>
+
+<!-- <footer>
+    <div class="container text-center">
+        <p>© 2020 Softweb Solutions Inc (An Avnet Company). All rights reserved.</p>
+    </div>
+</footer> -->
+    </div>
+<!--      <script src="/static/js/jquery.min.js"></script>-->
+<!--  <script src="/static/js/popper.min.js"></script>-->
+<!--  <script src="/static/js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+</body>
+</html>
