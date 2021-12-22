@@ -1,0 +1,9 @@
+#use this as sample input:
+
+The Avengers
+
+Batman
+
+George and the Dragon
+
+Rock Star

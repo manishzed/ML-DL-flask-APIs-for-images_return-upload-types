@@ -1,0 +1,17 @@
+1>
+ go away
+ 
+ 2> 
+ This is a good day
+ 
+ 3> 
+ This is not a horrible day
+ 
+ 4>
+ today is bad day
+
+ 5> 
+ trump is not a good man
+
+6>
+trump is not a man

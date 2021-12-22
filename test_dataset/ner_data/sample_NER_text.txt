@@ -1,0 +1,10 @@
+#use this as sample input:
+
+1> SAN FRANCISCO: Tesla Inc Chief Executive Elon Musk said on Thursday the electric carmaker plans to move its headquarters from Silicon Valley's Palo Alto, California to Austin, Texas, where it is building a massive car and battery manufacturing complex.
+Tesla joins Oracle, HP and Toyota Motor in moving U.S. headquarters to Texas from California, which has relatively high taxes and living costs. While Silicon Valley also is a hive of development of new ideas and companies, Texas is known for cheaper labor and less stringent regulation.
+"I'm excited to announce that we're moving our headquarters to Austin, Texas," MThis is not a matter of, sort of, Tesla leaving California," he said, saying it plans to increase output from its main California factory and Nevada factory by 50%.usk told the company's annual meeting, held in the Texas car factory.
+
+
+
+2> The Mars Orbiter Mission (MOM), informally known as Mangalyaan, was launched into Earth orbit on 5 November 2013 by the Indian Space Research Organisation (ISRO) 
+and has entered Mars orbit on 24 September 2014. India thus became the first country to enter Mars orbit on its first attempt. It was completed at a record low cost of $74 million.
